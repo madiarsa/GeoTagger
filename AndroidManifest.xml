@@ -7,14 +7,28 @@
 	<application android:icon="@drawable/icon" android:name="GeoTagger" android:label="@string/application_name" android:allowClearUserData="true">
 		
 	
-<activity android:name=".sensors.SensorServiceConfigurator" android:icon="@drawable/icon" android:label="@string/application_sensorservice_configurator_name"><intent-filter><action android:name="android.intent.action.MAIN"></action>
+<activity android:name=".sensors.SensorServiceConfigurator" android:icon="@drawable/icon" android:label="@string/application_sensorservice_configurator_name" android:launchMode="singleTask"><intent-filter><action android:name="android.intent.action.MAIN"></action>
 
 <category android:name="android.intent.category.LAUNCHER"></category>
 
+
 </intent-filter>
 </activity>
-<service android:name=".sensors.SensorService">
+<activity android:launchMode="singleTask" android:label="@string/application_geotag_name" android:name=".GeoTag"><intent-filter><action android:name="android.intent.action.MAIN"></action>
+<category android:name="android.intent.category.LAUNCHER"></category>
+</intent-filter>
+</activity><activity android:name=".TextNote"></activity><service android:name=".sensors.SensorService">
 </service>
+<service android:name=".sensors.WifiLoggingService"></service>
+<service android:name=".sensors.CellLocationLoggingService"></service>
+<service android:name=".sensors.DataConnectionStateLoggingService"></service>
+<service android:name=".sensors.SignalStrengthLoggingService"></service>
+<service android:name=".sensors.ServiceStateLoggingService"></service>
+<service android:name=".sensors.TelephonyLoggingService"></service>
+<service android:name=".sensors.LocationLoggingService"></service>
+
+
+<activity android:name=".VoiceNote"></activity>
 </application>
     <uses-sdk android:minSdkVersion="3" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -28,4 +42,5 @@
 	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
 
 <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+<uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
 </manifest>

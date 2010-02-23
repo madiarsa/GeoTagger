@@ -6,4 +6,5 @@
 <string name="permission_global">horizon.geotagger.PERMISSION_GLOBAL</string>
 
 <string name="application_sensorservice_configurator_name">Sensor Service Configuration</string>
+<string name="application_geotag_name">GeoTag</string>
 </resources>
