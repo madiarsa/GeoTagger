@@ -113,6 +113,8 @@ extends Activity
         {
             public void onClick(View v) 
             {
+            	Intent i = new Intent(GeoTag.this, ImageNote.class);
+            	startActivityForResult(i, 30);
             	logger.debug("Button03 pressed");
             }
         });
@@ -122,6 +124,8 @@ extends Activity
         {
             public void onClick(View v) 
             {
+            	Intent i = new Intent(GeoTag.this, VideoNote.class);
+            	startActivityForResult(i, 40);
             	logger.debug("Button04 pressed");
             }
         });        
@@ -146,11 +150,15 @@ extends Activity
 		}
 		else if(requestCode == 30)
 		{
-		
+			String filename = data.getCharSequenceExtra("fileName").toString();
+			Location location = (Location)data.getParcelableExtra("location");
+			taglog(System.currentTimeMillis(), location, "IMAGE=" + filename);
 		}
 		else if(requestCode == 40)
 		{
-			
+			String filename = data.getCharSequenceExtra("fileName").toString();
+			Location location = (Location)data.getParcelableExtra("location");
+			taglog(System.currentTimeMillis(), location, "VIDEO=" + filename);
 		}		
 	}
 	

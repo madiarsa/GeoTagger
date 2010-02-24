@@ -29,6 +29,8 @@
 
 
 <activity android:name=".VoiceNote"></activity>
+<activity android:name=".ImageNote"></activity>
+<activity android:name=".VideoNote"></activity>
 </application>
     <uses-sdk android:minSdkVersion="3" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -38,9 +40,10 @@
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.BATTERY_STATS" />
 	<uses-permission android:name="android.permission.BLUETOOTH" />
-	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /><uses-permission android:name="android.permission.CAMERA"></uses-permission>
 	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
 
-<uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
-<uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
+<uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission><uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+
+
 </manifest>
