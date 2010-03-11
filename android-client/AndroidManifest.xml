@@ -4,35 +4,37 @@
 		android:versionCode="1"
 		android:versionName="@string/application_version"
 		package="horizon.geotagger">
-	<application android:icon="@drawable/icon" android:name="GeoTagger" android:label="@string/application_name" android:allowClearUserData="true">
 		
+	<application
+			android:icon="@drawable/icon"
+			android:name="GeoTagger"
+			android:label="@string/application_name"
+			android:allowClearUserData="true">
+			
+		<activity android:name=".view.MapView">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		
+		<activity android:name=".view.TagView" />
+		
+		<service android:name=".AlertService" />
+		
+		<uses-library android:name="com.google.android.maps" />
 	
-<activity android:name=".sensors.SensorServiceConfigurator" android:icon="@drawable/icon" android:label="@string/application_sensorservice_configurator_name" android:launchMode="singleTask"><intent-filter><action android:name="android.intent.action.MAIN"></action>
-
-<category android:name="android.intent.category.LAUNCHER"></category>
-
-
-</intent-filter>
-</activity>
-<activity android:launchMode="singleTask" android:label="@string/application_geotag_name" android:name=".GeoTag"><intent-filter><action android:name="android.intent.action.MAIN"></action>
-<category android:name="android.intent.category.LAUNCHER"></category>
-</intent-filter>
-</activity><activity android:name=".TextNote"></activity><service android:name=".sensors.SensorService">
-</service>
-<service android:name=".sensors.WifiLoggingService"></service>
-<service android:name=".sensors.CellLocationLoggingService"></service>
-<service android:name=".sensors.DataConnectionStateLoggingService"></service>
-<service android:name=".sensors.SignalStrengthLoggingService"></service>
-<service android:name=".sensors.ServiceStateLoggingService"></service>
-<service android:name=".sensors.TelephonyLoggingService"></service>
-<service android:name=".sensors.LocationLoggingService"></service>
-
-
-<activity android:name=".VoiceNote"></activity>
-<activity android:name=".ImageNote"></activity>
-<activity android:name=".VideoNote"></activity>
-</application>
+	</application>
+	
     <uses-sdk android:minSdkVersion="3" />
+    
+    <uses-configuration
+			android:reqKeyboardType="undefined"
+			android:reqHardKeyboard="false"
+			android:reqTouchScreen="undefined"
+			android:reqFiveWayNav="false"
+			android:reqNavigation="undefined" />
+			
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
@@ -40,10 +42,12 @@
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.BATTERY_STATS" />
 	<uses-permission android:name="android.permission.BLUETOOTH" />
-	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /><uses-permission android:name="android.permission.CAMERA"></uses-permission>
-	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
-
-<uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission><uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
-
-
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.RECORD_AUDIO" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	
 </manifest>

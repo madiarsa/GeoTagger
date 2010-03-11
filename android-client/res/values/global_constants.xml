@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="application_name">GeoTagger</string>
+    <string name="application_sdk_version">3</string>
+    <string name="application_version">1.0</string>
+    
+    <string name="google_maps_api_key">
+    	0RtJIVyIrhDYHE0kmla-_Jgjgcn34q41VAUv9fw
+    </string>
+    
+    <string name="gps_disabled_warning"><b>Warning</b>, this application
+    relies on the GPS provider being enabled.  Currently, the GPS provider
+    is disabled and as such this application will not function correctly.
+    </string>
+    <string name="close_gps_disabled_warning">Okay</string>
+    
+</resources>
