@@ -10,6 +10,6 @@ extends Application
 	public void onCreate()
 	{
 		super.onCreate();
-		startService(new Intent(this, AlertService.class));
+		startService(new Intent(getApplicationContext(), AlertService.class));
 	}
 }

@@ -45,7 +45,7 @@ implements Runnable
 	private final Notification notification = new Notification();
 	{
 		notification.icon = R.drawable.icon;
-		//notification.defaults = Notification.DEFAULT_VIBRATE;
+		notification.defaults = Notification.DEFAULT_VIBRATE;
 		notification.flags = Notification.FLAG_AUTO_CANCEL;
 	}
 	
@@ -77,6 +77,8 @@ implements Runnable
 				LocationManager.GPS_PROVIDER, 60000, 1,
 				new LocationListener()
 				{
+					private Location lastLocation;
+					
 					@Override
 					public void onStatusChanged(String provider, int status, Bundle extras) { }
 					@Override
@@ -86,6 +88,21 @@ implements Runnable
 					@Override
 					public void onLocationChanged(Location location) 
 					{
+						// Enforce a minimum 30 second interval between
+						// updates or a minimum 10 meter travel distance
+						if(lastLocation != null)
+						{
+							double distance = GeoUtils.distance(
+									lastLocation.getLatitude(),
+									lastLocation.getLongitude(),
+									location.getLatitude(),
+									location.getLongitude());
+							long time = location.getTime() - lastLocation.getTime();
+							if(distance < 10D && time < 30000)
+								return;
+						}
+						
+						lastLocation = location;
 						Message msg = Message.obtain(
 								messageHandler,
 								LOCATION_UPDATE_WHAT,

@@ -20,6 +20,20 @@
 		
 		<activity android:name=".view.TagView" />
 		
+		<activity android:name=".view.DoTextTagView" android:label="@string/text_tag_name">
+			<intent-filter>
+				<action android:name="horizon.geotagger.ACTION_DO_GEOTAG" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		
+		<activity android:name=".view.DoImageTagView" android:label="@string/image_tag_name">
+			<intent-filter>
+				<action android:name="horizon.geotagger.ACTION_DO_GEOTAG" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		
 		<service android:name=".AlertService" />
 		
 		<uses-library android:name="com.google.android.maps" />

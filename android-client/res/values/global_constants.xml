@@ -5,6 +5,9 @@
     <string name="application_sdk_version">3</string>
     <string name="application_version">1.0</string>
     
+    <string name="text_tag_name">Text Tag</string>
+    <string name="image_tag_name">Image Tag</string>
+    
     <string name="google_maps_api_key">
     	0RtJIVyIrhDYHE0kmla-_Jgjgcn34q41VAUv9fw
     </string>

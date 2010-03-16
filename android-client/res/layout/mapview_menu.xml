@@ -4,4 +4,6 @@
           android:title="My Location" />
     <item android:id="@+id/mapview_menu_newtag"
           android:title="New Tag" />
+    <item android:id="@+id/mapview_menu_exit"
+          android:title="Exit" />
 </menu>

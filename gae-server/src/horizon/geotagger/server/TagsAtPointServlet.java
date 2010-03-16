@@ -1,8 +1,11 @@
 package horizon.geotagger.server;
 
+import horizon.geotagger.GeoUtils;
 import horizon.geotagger.PMF;
+import horizon.geotagger.model.Place;
 import horizon.geotagger.model.Tag;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -32,9 +35,26 @@ extends ServletWithView
 				
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		
+		double north = data.getLatitude() + GeoUtils.changeInLatitude(10);
+		double south = data.getLatitude() - GeoUtils.changeInLatitude(10);
+		
+		double east = data.getLongitude() + GeoUtils.changeInLongitude(data.getLatitude(), 10);
+		double west = data.getLongitude() - GeoUtils.changeInLongitude(data.getLatitude(), 10);
+		
 		List<Tag> tags = (List<Tag>)pm.newQuery(
 				"SELECT FROM " + Tag.class.getName()).execute();
-		model.put("tags", tags);
+		
+		ArrayList<Tag> matches = new ArrayList<Tag>();
+		for(Tag t : tags)
+		{
+			Place p = t.getPlace();
+			if(p.getLatitude() > south 
+					&& p.getLatitude() < north
+					&& p.getLongitude() > west
+					&& p.getLongitude() < east)
+				matches.add(t);
+		}
+		model.put("tags", matches);
 				
 		return new ModelAndView(view, model);
 	}
