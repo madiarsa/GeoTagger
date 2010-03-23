@@ -7,9 +7,6 @@
 
 # Android client specific ignores
 android-client/src/horizon/perscon
-android-client/lib/perscon.jar
-android-client/lib/jackson-core*.jar
-android-client/lib/jackson-mapper*.jar
 
 # GAE server specific ignores
 gae-server/war/geotagger
