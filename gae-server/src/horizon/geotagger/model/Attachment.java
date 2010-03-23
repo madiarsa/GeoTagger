@@ -10,8 +10,9 @@ import javax.jdo.annotations.PrimaryKey;
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.map.JsonSerializable;
+import org.codehaus.jackson.map.JsonSerializableWithType;
 import org.codehaus.jackson.map.SerializerProvider;
+import org.codehaus.jackson.map.TypeSerializer;
 
 import com.google.appengine.api.datastore.Blob;
 import com.google.appengine.api.datastore.Key;
@@ -19,7 +20,7 @@ import com.google.appengine.api.datastore.Key;
 @JsonIgnoreProperties({"key"})
 @PersistenceCapable
 public class Attachment
-implements JsonSerializable
+implements JsonSerializableWithType
 {
 	public static enum Type { Text, Image; }
 	
@@ -72,5 +73,17 @@ implements JsonSerializable
 		gen.writeStringField("type", type.name());
 		gen.writeBinaryField("data", data.getBytes());
 		gen.writeEndObject();
+	}
+
+	@Override
+	public void serializeWithType(
+			JsonGenerator gen, SerializerProvider prov, TypeSerializer ser)
+	throws	IOException,
+			JsonProcessingException
+	{
+		gen.writeStartObject();
+		gen.writeStringField("type", type.name());
+		gen.writeBinaryField("data", data.getBytes());
+		gen.writeEndObject();		
 	}
 }

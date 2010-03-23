@@ -10,3 +10,4 @@ android-client/src/horizon/perscon
 
 # GAE server specific ignores
 gae-server/war/geotagger
+gae-server/war/WEB-INF/classes
