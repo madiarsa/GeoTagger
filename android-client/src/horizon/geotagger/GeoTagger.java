@@ -5,7 +5,7 @@ import android.content.Intent;
 
 public class GeoTagger
 extends Application 
-{
+{	
 	@Override
 	public void onCreate()
 	{

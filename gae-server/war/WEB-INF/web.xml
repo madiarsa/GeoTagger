@@ -20,6 +20,11 @@
   		<servlet-name>addTag</servlet-name>
   		<servlet-class>horizon.geotagger.server.AddTagServlet</servlet-class>
   	</servlet>
+  	
+  	<servlet>
+  		<servlet-name>callback</servlet-name>
+  		<servlet-class>horizon.geotagger.server.CallbackServlet</servlet-class>
+  	</servlet>
   
   	<servlet-mapping>
   		<servlet-name>tagsAtPoint</servlet-name>
@@ -34,6 +39,11 @@
   	<servlet-mapping>
   		<servlet-name>addTag</servlet-name>
   		<url-pattern>/addTag</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet-mapping>
+  		<servlet-name>callback</servlet-name>
+  		<url-pattern>/callback</url-pattern>
   	</servlet-mapping>
   
   	<welcome-file-list>

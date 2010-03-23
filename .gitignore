@@ -2,3 +2,6 @@
 .classpath
 gen
 bin
+android-client/src/horizon/perscon
+android-client/lib/perscon.jar
+gae-server/.settings/

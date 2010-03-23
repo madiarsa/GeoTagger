@@ -4,12 +4,16 @@
 	<string name="application_name">GeoTagger</string>
     <string name="application_sdk_version">3</string>
     <string name="application_version">1.0</string>
+    <string name="application_id">73a4d0cda6e1093a2706b0ab418d8a3c6f5deed7</string>
     
     <string name="text_tag_name">Text Tag</string>
     <string name="image_tag_name">Image Tag</string>
     
-    <string name="google_maps_api_key">
+    <!-- <string name="google_maps_api_key">
     	0RtJIVyIrhDYHE0kmla-_Jgjgcn34q41VAUv9fw
+    </string>-->
+    <string name="google_maps_api_key">
+    	0RtJIVyIrhDYIIQ4FGUI8KGokmPaL7DqIMhw2kA
     </string>
     
     <string name="gps_disabled_warning"><b>Warning</b>, this application
