@@ -9,7 +9,8 @@
 			android:icon="@drawable/icon"
 			android:name="GeoTagger"
 			android:label="@string/application_name"
-			android:allowClearUserData="true">
+			android:allowClearUserData="true" 
+			android:debuggable="true">
 			
 		<activity android:name=".view.MapView">
 			<intent-filter>

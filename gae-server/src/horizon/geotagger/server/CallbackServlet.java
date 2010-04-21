@@ -77,8 +77,6 @@ extends HttpServlet
 		place.setLongitude(jplace.get("lon").getDoubleValue());
 		
 		PersistenceManager pm = PMF.get().getPersistenceManager();
-		//pm.makePersistent(attachment);
-		//pm.makePersistent(place);
 		pm.makePersistent(tag);		
 	}
 }

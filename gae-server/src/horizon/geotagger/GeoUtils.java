@@ -7,7 +7,7 @@ public class GeoUtils
 {
 	private static final double EARTH_RADIUS_IN_MILES = 3960.0;
 	
-	private static final double EARTH_RADIUS_IN_KM = 6371.0;
+	private static final double EARTH_RADIUS_IN_KILOMETERS = 6371.0;
 	
 	private static final double METER_IN_MILES = 0.000621371192D;
 	
@@ -55,7 +55,7 @@ public class GeoUtils
 		double lon2 = Math.toRadians(lonB);
 		double km = Math.acos(Math.sin(lat1) * Math.sin(lat2) 
 				+ Math.cos(lat1) * Math.cos(lat2) 
-				* Math.cos(lon2-lon1)) * EARTH_RADIUS_IN_KM;
+				* Math.cos(lon2-lon1)) * EARTH_RADIUS_IN_KILOMETERS;
 		return km * 1000;
 	}
 }

@@ -2,8 +2,6 @@ package horizon.geotagger.view;
 
 import java.io.UnsupportedEncodingException;
 
-import org.codehaus.jackson.map.ObjectMapper;
-
 import horizon.android.logging.Logger;
 import horizon.geotagger.R;
 import horizon.perscon.IPersconService;
@@ -150,15 +148,6 @@ extends Activity
 		thing.setOrigin("GeoTagger");
 		thing.setPermissions(new Integer(1));
 		thing.setAttachments(new Attachment[] { a } );
-		ObjectMapper mp = new ObjectMapper();
-		try
-		{
-			thing.setMeta("{\"mime\":\"text/plain\", \"body\":" + mp.writeValueAsString(a.getBody()) + "}");
-		}
-		catch (Exception e)
-		{
-			throw new RuntimeException(e);
-		}
 		
 		Place place = new Place();
 		place.setElevation(location.getAltitude());

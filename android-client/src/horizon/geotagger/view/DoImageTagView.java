@@ -1,9 +1,5 @@
 package horizon.geotagger.view;
 
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 import horizon.android.logging.Logger;
 import horizon.geotagger.R;
 import horizon.perscon.IPersconService;
@@ -68,7 +64,7 @@ extends Activity
 		//cp.setPictureSize(320, 240);
 		cp.setPreviewSize(1024, 768);
 		cp.setPictureSize(1024, 768);
-		camera.setParameters(cp);
+		//camera.setParameters(cp);
 		
 		final Location location = getIntent().getParcelableExtra("location");
 		Button doButton = (Button)findViewById(R.id.DoImageTagButton);
@@ -153,9 +149,7 @@ extends Activity
 		}
 		
 		Attachment a = new Attachment();
-		byte[] bb = new byte[1];
-		bb[0] = 0;
-		a.setBody(bb);
+		a.setBody(data);
 		a.setMimeType("image/jpeg");
 		a.setPermissions(new Integer(1));
 				
@@ -163,28 +157,7 @@ extends Activity
 		thing.setOrigin("GeoTagger");
 		thing.setPermissions(new Integer(1));
 		thing.setAttachments(new Attachment[] { a } );
-		
-		String filename = "/sdcard/image" + System.currentTimeMillis() + ".jpg";
-		try
-		{
-			BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(filename));
-			out.write(data);
-			out.close();
-		}
-		catch(IOException e)
-		{
-			throw new RuntimeException(e);
-		}
-		
-		try
-		{
-			thing.setMeta("{\"mime\":\"image/jpeg\", \"filename\":\"" + filename + "\"}");
-		}
-		catch (Exception e)
-		{
-			throw new RuntimeException(e);
-		}
-		
+				
 		Place place = new Place();
 		place.setElevation(location.getAltitude());
 		place.setLatitude(location.getLatitude());

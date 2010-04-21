@@ -20,13 +20,10 @@ import android.widget.TextView;
 public class TagView
 extends Activity
 {
-	public static final String TAG_LIST = "tag_list";
-	
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
+	protected void onResume()
 	{
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.tagview);
+		super.onResume();
 		
 		final ArrayList<Tag> tags = getIntent().getParcelableArrayListExtra(TAG_LIST);		
 		ArrayAdapter<Tag> adapter = new ArrayAdapter<Tag>(this, 0, tags)
@@ -62,5 +59,16 @@ extends Activity
 		
 		Gallery gallery = (Gallery)findViewById(R.id.tagview);
 		gallery.setAdapter(adapter);
+	}
+
+	public static final String TAG_LIST = "tag_list";
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.tagview);
+		
+		
 	}
 }
