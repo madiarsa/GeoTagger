@@ -11,7 +11,7 @@ Android client that allows for geo-located images and text to be pushed to the s
 the personal data store, and for a user to explore the landscape to find geo-located objects
 that other users have dropped.
 
-[Horizon] : http://www.horizon.ac.uk
+[Horizon]: http://www.horizon.ac.uk
 
 Licence
 -------
