@@ -61,10 +61,11 @@ extends Activity
 		
 		final Camera camera = Camera.open();
 		Camera.Parameters cp = camera.getParameters();
-		//cp.setPictureSize(320, 240);
-		cp.setPreviewSize(1024, 768);
-		cp.setPictureSize(1024, 768);
-		//camera.setParameters(cp);
+		cp.setPictureSize(320, 240);
+		cp.setPreviewSize(320, 240);
+		//cp.setPreviewSize(1024, 768);
+		//cp.setPictureSize(1024, 768);
+		camera.setParameters(cp);
 		
 		final Location location = getIntent().getParcelableExtra("location");
 		Button doButton = (Button)findViewById(R.id.DoImageTagButton);

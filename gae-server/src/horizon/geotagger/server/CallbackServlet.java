@@ -53,11 +53,12 @@ extends HttpServlet
 		
 		in.close();
 		
-		JsonNode meta = root.get("thing").get("meta");
-		String mime = meta.get("mime").getTextValue();
-		String body64 = meta.get("body").getTextValue();
-		byte[] body = Base64.decode(body64);
+		JsonNode att = root.get("thing").get("atts").get(0);
+		String mime = att.get("mime").getTextValue();
 		JsonNode jplace = root.get("place");
+		
+		String body64 = att.get("body").getTextValue();
+		byte[] body = Base64.decode(body64);
 
 		Tag tag = new Tag();
 		Place place = new Place();

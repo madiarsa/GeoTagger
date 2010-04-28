@@ -89,7 +89,7 @@ implements Runnable
 					public void onLocationChanged(Location location) 
 					{
 						// Enforce a minimum 30 second interval between
-						// updates or a minimum 10 meter travel distance
+						// updates or a minimum 5 meter travel distance
 						if(lastLocation != null)
 						{
 							double distance = GeoUtils.distance(
@@ -98,7 +98,7 @@ implements Runnable
 									location.getLatitude(),
 									location.getLongitude());
 							long time = location.getTime() - lastLocation.getTime();
-							if(distance < 10D && time < 30000)
+							if(distance < 5D && time < 30000)
 								return;
 						}
 						
@@ -177,7 +177,7 @@ implements Runnable
 		
 		Intent view = new Intent(this, TagView.class);
 		view.putParcelableArrayListExtra(TagView.TAG_LIST, tags);
-		PendingIntent content = PendingIntent.getActivity(this, 0, view, 0);
+		PendingIntent content = PendingIntent.getActivity(this, 0, view, PendingIntent.FLAG_UPDATE_CURRENT);
 		
 		notification.tickerText = "There are " + tags.size() + " geonotes here for you to view"; 
 		notification.number = tags.size();
@@ -186,6 +186,7 @@ implements Runnable
 				"GeoTagger",
 				"There are " + tags.size() + " geonotes here for you to view",
 				content);
+		
 		
 		notificationManager.notify(NOTIFICATION_ID, notification);
 	}
