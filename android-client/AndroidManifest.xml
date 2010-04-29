@@ -21,14 +21,19 @@
 		
 		<activity android:name=".view.TagView" />
 		
-		<activity android:name=".view.DoTextTagView" android:label="@string/text_tag_name">
+		<activity
+				android:name=".view.DoTextTagView"
+				android:label="@string/text_tag_name">
 			<intent-filter>
 				<action android:name="horizon.geotagger.ACTION_DO_GEOTAG" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
 		
-		<activity android:name=".view.DoImageTagView" android:label="@string/image_tag_name">
+		<activity
+				android:name=".view.DoImageTagView"
+				android:label="@string/image_tag_name"
+				android:screenOrientation="landscape">
 			<intent-filter>
 				<action android:name="horizon.geotagger.ACTION_DO_GEOTAG" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -64,5 +69,8 @@
 	<uses-permission android:name="android.permission.RECORD_AUDIO" />
 	<uses-permission android:name="android.permission.VIBRATE" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	
+	<uses-feature android:name="android.hardware.camera" />
+	<uses-feature android:name="android.hardware.camera.autofocus" />
 	
 </manifest>

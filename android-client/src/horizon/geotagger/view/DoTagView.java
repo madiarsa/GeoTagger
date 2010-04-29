@@ -1,6 +1,7 @@
 package horizon.geotagger.view;
 
 import horizon.android.logging.Logger;
+import horizon.geotagger.PersconServiceConnection;
 import horizon.geotagger.R;
 import horizon.perscon.IPersconService;
 import horizon.perscon.model.Attachment;
@@ -8,10 +9,6 @@ import horizon.perscon.model.Person;
 import horizon.perscon.model.Place;
 import horizon.perscon.model.PrivacyMask;
 import horizon.perscon.model.Thing;
-
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 import android.app.Activity;
 import android.content.Context;
@@ -62,72 +59,36 @@ extends Activity
 		return serviceConnection.getPersconService();
 	}
 	
-	private void store(String mimeType, byte[] data)
+	protected void store(String mimeType, byte[] data)
 	{
 		IPersconService persconService = getPersconService();
 		
 		Resources r = getResources();
 		
-		try
-		{
-			
-			persconService.registerApplication(
-					r.getString(R.string.application_id),
-					r.getString(R.string.application_name),
-					r.getString(R.string.application_version));
-		}
-		catch(RemoteException e)
-		{
-			logger.error("Unable to store tag, could not register the application", e);
-			Toast.makeText(this, "Unable to register application", Toast.LENGTH_SHORT).show();
-		}
+		final Integer permissions = new Integer(1); 
 		
 		Attachment a = new Attachment();
 		a.setBody(data);
 		a.setMimeType(mimeType);
-		a.setPermissions(new Integer(1));
+		a.setPermissions(permissions);
 				
 		Thing thing = new Thing();
 		thing.setOrigin(r.getString(R.string.application_name));
-		thing.setPermissions(new Integer(1));
-		thing.setAttachments(new Attachment[] { a } );
-		
-		String filename = "/sdcard/image" + System.currentTimeMillis() + ".jpg";
-		try
-		{
-			BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(filename));
-			out.write(data);
-			out.close();
-		}
-		catch(IOException e)
-		{
-			throw new RuntimeException(e);
-		}
-		
-		try
-		{
-			thing.setMeta("{\"mime\":\"image/jpeg\", \"filename\":\"" + filename + "\"}");
-		}
-		catch (Exception e)
-		{
-			throw new RuntimeException(e);
-		}
+		thing.setPermissions(permissions);
+		thing.setAttachments(new Attachment[] { a } );		
 		
 		Location location = getTagLocation();
-		
 		Place place = new Place();
 		place.setElevation(location.getAltitude());
 		place.setLatitude(location.getLatitude());
 		place.setLongitude(location.getLongitude());
-		place.setPermissions(new Integer(1));
+		place.setPermissions(permissions);
 
 		Person person = new Person();
 		person.setName("Hack");
-		person.setPermissions(10);
+		person.setPermissions(permissions);
 		
 		PrivacyMask pm = new PrivacyMask();
-		pm.setField(PrivacyMask.PRIV_PLACE, true);
-		pm.setAllPrivate();
 		pm.setAllPublic();
 		
 		try
