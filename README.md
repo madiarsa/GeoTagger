@@ -20,4 +20,4 @@ distributed under their individual licences.
 
 Installation
 ------------
-At present, installation of the full demo stack is not supported or documented.  However if you have an Android phone and wish to test out the demo for yourself, you may do so by downloading [person.apk](http://github.com/downloads/dominicjprice/GeoTagger/person.apk) and [GeoTagger.apk](http://github.com/downloads/dominicjprice/GeoTagger/GeoTagger.apk) and installing them (in that order) on your phone.
+At present, installation of the full demo stack is not supported or documented.  However if you have an Android phone and wish to test out the demo for yourself, you may do so by downloading [person.apk](http://github.com/downloads/dominicjprice/GeoTagger/perscon.apk) and [GeoTagger.apk](http://github.com/downloads/dominicjprice/GeoTagger/GeoTagger.apk) and installing them (in that order) on your phone.
