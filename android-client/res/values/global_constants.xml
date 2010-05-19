@@ -9,11 +9,8 @@
     <string name="text_tag_name">Text Tag</string>
     <string name="image_tag_name">Image Tag</string>
     
-    <!-- <string name="google_maps_api_key">
-    	0RtJIVyIrhDYHE0kmla-_Jgjgcn34q41VAUv9fw
-    </string>-->
     <string name="google_maps_api_key">
-    	0RtJIVyIrhDYIIQ4FGUI8KGokmPaL7DqIMhw2kA
+    	0EcR-Bcasldj5-7rQ2hKRbOwpAVlXWbYiZnZEyg
     </string>
     
     <string name="gps_disabled_warning"><b>Warning</b>, this application
